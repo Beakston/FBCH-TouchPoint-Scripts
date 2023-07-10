@@ -1,0 +1,5 @@
+?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramId + '''
+
+
+ProgramID = model.Data.ProgramID
+ProgramName = model.Data.ProgramName
