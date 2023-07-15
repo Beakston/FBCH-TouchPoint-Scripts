@@ -1,4 +1,8 @@
 model.Title = "Receipt Email"
+
+ProgramID = model.Data.ProgramID
+ProgramName = model.Data.ProgramName
+
 pid = model.Data.p1
 tranid = model.Data.TranId
 
@@ -310,9 +314,20 @@ for a in q.QuerySql(transactionsnew):
         
         '''
     #print message
-    model.Email(a.PeopleId, 3414, "dmeyer@fbchtn.org", "David Meyer - FBCHville", "FBCHville Receipt", message)
+
+    if ProgramID == 1108:
+      model.Email(a.PeopleId, 3414, "dmeyer@fbchtn.org", "David Meyer - FBCHville", "FBCHville Receipt", message)
+    elif ProgramID == 1109:
+      model.Email(a.PeopleId, 7365, "tklapwyk@fbchtn.org", "Tammy Klapwyk - FBCHville", "FBCHville Receipt", message)
+    elif ProgramID == 1143:
+      model.Email(a.PeopleId, 11180, "lpoteet@fbchtn.org", "Laura Poteet - FBCHville", "FBCHville Receipt", message)
+    elif ProgramID == 1149:
+      model.Email(a.PeopleId, 36153, "sgilmore@fbchtn.org", "Shannon Gilmore - FBCHville", "FBCHville Receipt", message)
+    elif ProgramID == 1152:
+      model.Email(a.PeopleId, 14221, "tbeals@fbchtn.org", "Tucker Beals - FBCHville", "FBCHville Test Receipt", message)
+    
     print '''<h2>Receipt sent to ''' + a.EmailAddress
 
 print '''</br></br><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">'''    
 print '''<input type="button" value=" < " onclick="history.back()">
-    <button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/Member%20Manager?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramId + '''';"><i class="fa fa-home"></i></button>'''
+    <button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/Member%20Manager?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramID + '''';"><i class="fa fa-home"></i></button>'''

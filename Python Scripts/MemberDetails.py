@@ -6,7 +6,7 @@ FamilyId = model.Data.FamilyId
 model.Header = ProgramName +' Member Details'
 
 declareVariables = '''
-DECLARE @ProgramId int = ''' + ProgramID + '''
+DECLARE @ProgramID int = ''' + ProgramID + '''
 DECLARE @ProgramName varchar(30) = ''' + ProgramName
 
 q.QuerySql(declareVariables)

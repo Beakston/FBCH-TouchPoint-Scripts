@@ -307,6 +307,6 @@ for a in q.QuerySql(transactionsnew):
     #print message
     message = message + '''</br></br></br><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">'''    
     message = message + '''<input type="button" value=" < " onclick="history.back()">'''
-    message = message + '''<button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/Member%20Manager?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramId + '''';"><i class="fa fa-home"></i></button>'''
-    message = message + '''<button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/ReceiptEmail?P1=''' + str(a.PeopleId) + '''&TranId=''' + str(a.Id) + '''&ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramId + ''' ';"><i class="fa fa-envelope-o"></i></button>'''
+    message = message + '''<button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/Member%20Manager?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramID + '''';"><i class="fa fa-home"></i></button>'''
+    message = message + '''<button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/ReceiptEmail?P1=''' + str(a.PeopleId) + '''&TranId=''' + str(a.Id) + '''&ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramID + ''' ';"><i class="fa fa-envelope-o"></i></button>'''
     print message

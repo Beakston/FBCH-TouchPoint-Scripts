@@ -4,7 +4,7 @@ ProgramName = model.Data.ProgramName
 model.Header = ProgramName + ' Member Manager'
 
 listsql = '''
-DECLARE @ProgramId int = ''' + ProgramID +'''
+DECLARE @ProgramID int = ''' + ProgramID +'''
 SELECT 
     dbo.People.PeopleId,
     dbo.People.Name, 
