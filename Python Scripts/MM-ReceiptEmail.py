@@ -1,9 +1,10 @@
-model.Title = "Receipt"
+model.Title = "Receipt Email"
+
+ProgramID = model.Data.ProgramID
+ProgramName = model.Data.ProgramName
 
 pid = model.Data.p1
 tranid = model.Data.TranId
-ProgramID = model.Data.ProgramID
-ProgramName = model.Data.ProgramName
 
 transactions = '''
     Select 
@@ -36,7 +37,8 @@ transactions = '''
         Order by TransactionDate
 '''.format(pid,tranid)
 
-transactionsnew = '''
+
+ transactionsnew = '''
 SELECT 
     t.Id, 
     t.TransactionDate, 
@@ -146,6 +148,11 @@ for a in q.QuerySql(transactionsnew):
         }
         
         table, td { color: #000000; } </style>
+          
+          
+        
+        
+        
         
           <!--[if IE]><div class="ie-container"><![endif]-->
           <!--[if mso]><div class="mso-container"><![endif]-->
@@ -188,7 +195,9 @@ for a in q.QuerySql(transactionsnew):
             </div>
           </div>
         </div>
-  
+        
+        
+        
         <div class="u-row-container" style="padding: 0px;background-color: #ced4d9">
           <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
             <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
@@ -268,7 +277,7 @@ for a in q.QuerySql(transactionsnew):
           <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
             <p style="font-size: 14px; line-height: 140%;">Hi ''' + a.FirstName + ''',</p>
         <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-        <p style="font-size: 14px; line-height: 140%;">Here is your payment confirmation for transaction on ''' + str(a.TransactionDate) + '''.</p>
+        <p style="font-size: 14px; line-height: 140%;">Here is your payment confirmation for the transaction on ''' + str(a.TransactionDate) + '''.</p>
         <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
         <p style="font-size: 14px; line-height: 140%;"><table>
             <tbody>
@@ -305,8 +314,20 @@ for a in q.QuerySql(transactionsnew):
         
         '''
     #print message
-    message = message + '''</br></br></br><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">'''    
-    message = message + '''<input type="button" value=" < " onclick="history.back()">'''
-    message = message + '''<button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/Member%20Manager?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramID + '''';"><i class="fa fa-home"></i></button>'''
-    message = message + '''<button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/ReceiptEmail?P1=''' + str(a.PeopleId) + '''&TranId=''' + str(a.Id) + '''&ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramID + ''' ';"><i class="fa fa-envelope-o"></i></button>'''
-    print message
+
+    if ProgramID == 1108:
+      model.Email(a.PeopleId, 3414, "dmeyer@fbchtn.org", "David Meyer - FBCHville", "FBCHville Receipt", message)
+    elif ProgramID == 1109:
+      model.Email(a.PeopleId, 7365, "tklapwyk@fbchtn.org", "Tammy Klapwyk - FBCHville", "FBCHville Receipt", message)
+    elif ProgramID == 1143:
+      model.Email(a.PeopleId, 11180, "lpoteet@fbchtn.org", "Laura Poteet - FBCHville", "FBCHville Receipt", message)
+    elif ProgramID == 1149:
+      model.Email(a.PeopleId, 36153, "sgilmore@fbchtn.org", "Shannon Gilmore - FBCHville", "FBCHville Receipt", message)
+    elif ProgramID == 1152:
+      model.Email(a.PeopleId, 14221, "tbeals@fbchtn.org", "Tucker Beals - FBCHville", "FBCHville Test Receipt", message)
+    
+    print '''<h2>Receipt sent to ''' + a.EmailAddress
+
+print '''</br></br><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">'''    
+print '''<input type="button" value=" < " onclick="history.back()">
+    <button onclick="window.location.href=' ''' + model.CmsHost + '''/PyScript/MM-MemberManager?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramID + '''';"><i class="fa fa-home"></i></button>'''

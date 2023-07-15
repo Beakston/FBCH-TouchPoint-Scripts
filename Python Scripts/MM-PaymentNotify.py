@@ -39,4 +39,4 @@ else:
 
 print '''</br></br><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">'''    
 print '''<input type="button" value=" < " onclick="history.back()">
-<button onclick="window.location.href='{0}/PyScript/FMC%20Member%20Manager?ProgramName={1}&ProgramID={2}';"><i class="fa fa-home"></i></button>'''.format(model.CmsHost, ProgramName, ProgramID)
+<button onclick="window.location.href='{0}/PyScript/MM-MemberManager?ProgramName={1}&ProgramID={2}';"><i class="fa fa-home"></i></button>'''.format(model.CmsHost, ProgramName, ProgramID)

@@ -74,8 +74,8 @@ print ('''
 <script src ="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"> </script> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <a onclick="history.back()"><i class="fa fa-hand-o-left fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
-<a href="'''+ model.CmsHost + '''/PyScript/'''+ ProgramName +'''%20Balance"><i class="fa fa-usd fa-2x" class=”button-solid”></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="'''+ model.CmsHost + '''/PyScript/'''+ ProgramName +'''%20Reports"><i class="fa fa-stack-exchange fa-2x" aria-hidden="true"></i></a>
+<a href="'''+ model.CmsHost + '''/PyScript/MM-Balance"><i class="fa fa-usd fa-2x" class=”button-solid”></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="'''+ model.CmsHost + '''/PyScript/MM-Reports"><i class="fa fa-stack-exchange fa-2x" aria-hidden="true"></i></a>
 <style>    
 button-solid {
   padding: 5px 10px;
@@ -172,7 +172,7 @@ for a in q.QuerySql(listsql):
 
     print ('<tr role = "row">')
     print ('<td role = "cell"> {} </td>').format(a.FamilyId)
-    print ('<td role = "cell"><a href="') + model.CmsHost + '/PyScript/Member%20Details?p1={1}&FamilyId={3}&ProgramName={4}&ProgramID={5}"> {0} ({2}) </a></td>'.format(a.Name, a.PeopleId, a.Age, a.FamilyId, ProgramName, ProgramID)
+    print ('<td role = "cell"><a href="') + model.CmsHost + '/PyScript/MM-MemberDetails?p1={1}&FamilyId={3}&ProgramName={4}&ProgramID={5}"> {0} ({2}) </a></td>'.format(a.Name, a.PeopleId, a.Age, a.FamilyId, ProgramName, ProgramID)
     print ('<td role = "cell"> {0} / {1}</td>').format(a.LastCheckin, a.CheckIns)
     print ('<td role = "cell"><a href="') + model.CmsHost + '/Org/{2}" target="_blank"> {0} ({1})</a></td>'.format(a.OrganizationName,a.SubGroup,a.OrganizationId)
     print ('<td role = "cell"><a href="') + model.CmsHost + '/Person2/{0}#tab-current" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>'.format(a.PeopleId)

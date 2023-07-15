@@ -5,7 +5,7 @@ model.Header = ProgramName +' Reports'
 
 template = '''
 <a onclick="history.back()"><i class="fa fa-hand-o-left fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
-<a href="https://myfbch.com/PyScript/Member%20Manager?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramID + '''"><i class="fa fa-home fa-2x"></i></a>
+<a href="https://myfbch.com/PyScript/MM-MemberManager?ProgramName=''' + ProgramName + '''&ProgramID=''' + ProgramID + '''"><i class="fa fa-home fa-2x"></i></a>
 <h4>Activity Log</h2>
 <a href="https://myfbch.com/CheckinTimes" target="_blank">Activity</a></br>
 <h4>Week over Week</h2>

@@ -292,7 +292,7 @@ print '''
 
 
 <a onclick="history.back()"><i class="fa fa-hand-o-left fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
-<a href="'''+ model.CmsHost + '''/PyScript/Member%20Manager"><i class="fa fa-home fa-2x"></i></button>
+<a href="'''+ model.CmsHost + '''/PyScript/MM-MemberManager"><i class="fa fa-home fa-2x"></i></button>
 
 
 <style>    
@@ -513,7 +513,7 @@ div.attendee h3 {
 '''
 for a in q.QuerySql(sqlFamily):
     print '<li class="active " style="font-size: 0.85em;">'
-    print '<a href="https://myfbch.com/PyScript/Member%20Details?p1={0}&FamilyId={1}&ProgramName={2}&ProgramID={3}" target="_blank">'.format(a.PeopleId,a.FamilyId, ProgramName, ProgramID)
+    print '<a href="https://myfbch.com/PyScript/MM-MemberDetails?p1={0}&FamilyId={1}&ProgramName={2}&ProgramID={3}" target="_blank">'.format(a.PeopleId,a.FamilyId, ProgramName, ProgramID)
     print '<div class="headshot" style="background-image:url({}); background-position: top"></div>'.format(a.SmallUrl)
     print '<span class="name">{0} {1} </span><br />'.format(a.FirstName,a.LastName)
     print '<span class="meta">'
@@ -644,7 +644,7 @@ for a in q.QuerySql(transactions):
             print '<a href="{0}" target="_blank">Pay in Person</a><i>(Open via Incognito)</i>'.format(paylink)
         
     #if a.TotalPaid != None:
-    #    print '''</br><a href="''' + model.CmsHost + '''/PyScript/FMC%20Receipt?p1={}">Receipt</a>'''.format(a.RegId)    
+    #    print '''</br><a href="''' + model.CmsHost + '''/PyScript/MM-Receipt?p1={}">Receipt</a>'''.format(a.RegId)    
     
     print '</td></tr>'
 
@@ -687,7 +687,7 @@ for a in q.QuerySql(sqlPaymentsNew):
     print '<td role = "cell"> {0} </td>'.format(a.Description)
     print '<td role = "cell"> {0} </td>'.format(a.OrganizationName)
     print '<td role = "cell"> {0} </td>'.format(a.amt)
-    print '''<td role = "cell"><a href="''' + model.CmsHost + '''/PyScript/Receipt?p1={0}&TranId={1}">Receipt</a></td>'''.format(a.PeopleId,a.Id)  
+    print '''<td role = "cell"><a href="''' + model.CmsHost + '''/PyScript/MM-Receipt?p1={0}&TranId={1}">Receipt</a></td>'''.format(a.PeopleId,a.Id)  
     print '</tr>'
 
 print '''
